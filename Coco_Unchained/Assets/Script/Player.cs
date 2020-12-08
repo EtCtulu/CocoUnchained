@@ -10,14 +10,17 @@ public class Player : MonoBehaviour
     public float moveSpeed = 0.1f;
     private Vector3 _direction;
 
-    public GameObject SwapProjectile;
+    public GameObject SwapProjectilePrefab;
     public GameObject FirePointLeft;
     public GameObject FirePointRight;
     public GameObject FirePointUp;
     public GameObject FirePointDown;
 
+    public float ProjectilesSpeed = 20f;
+
     public bool Horizontal;
     public bool Vertical;
+    private bool CanShoot = true;
 
     private void Update()
     {
@@ -25,29 +28,38 @@ public class Player : MonoBehaviour
         // Get move x and z input direction
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
 
-        if (_direction.x > 0 && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && CanShoot)
         {
-            //right
-            Instantiate(SwapProjectile, FirePointRight.transform.position, FirePointRight.transform.rotation);
+            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f * ProjectilesSpeed, 0f);
+            CanShoot = false;
+            Invoke("CanShootON", 0.5f);
         }
 
-        if (_direction.x < 0 && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && CanShoot)
         {
-            //left
-            Instantiate(SwapProjectile, FirePointLeft.transform.position, FirePointLeft.transform.rotation);
+            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f * ProjectilesSpeed, 0f);
+            CanShoot = false;
+            Invoke("CanShootON", 0.5f);
         }
 
-        if (_direction.y < 0 && _direction.x == 0 && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && CanShoot)
         {
-            //down
-            Instantiate(SwapProjectile, FirePointDown.transform.position, FirePointDown.transform.rotation);
+            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 1.0f * ProjectilesSpeed);
+            CanShoot = false;
+            Invoke("CanShootON", 0.5f);
         }
 
-        if (_direction.y > 0 && _direction.x == 0 && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && CanShoot)
         {
-            //up
-            Instantiate(SwapProjectile, FirePointUp.transform.position, FirePointUp.transform.rotation);
+            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -1.0f * ProjectilesSpeed);
+            CanShoot = false;
+            Invoke("CanShootON", 0.5f);
         }
+
     }
 
     private void FixedUpdate()
@@ -63,6 +75,12 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(targetMovement.x, targetMovement.y, 0f));
     }
 
+    private void CanShootON()
+    {
+        CanShoot = true;
+    }
+
+    
     
 
 }
