@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,19 +9,18 @@ public class Player : MonoBehaviour
     [Header("Movement Settings")]
     // Movespeed player value
     public float moveSpeed = 0.1f;
+
     private Vector3 _direction;
 
     public GameObject SwapProjectilePrefab;
-    public GameObject FirePointLeft;
-    public GameObject FirePointRight;
-    public GameObject FirePointUp;
-    public GameObject FirePointDown;
+    public Text NumberOfUsesText;
+    public Text NumberOfUsesNumber;
 
     public float ProjectilesSpeed = 20f;
 
-    public bool Horizontal;
-    public bool Vertical;
     private bool CanShoot = true;
+
+    public int NumberOfUses = 2;
 
     private void Update()
     {
@@ -28,36 +28,45 @@ public class Player : MonoBehaviour
         // Get move x and z input direction
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && CanShoot)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && CanShoot && NumberOfUses > 0)
         {
             GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f * ProjectilesSpeed, 0f);
             CanShoot = false;
+            NumberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && CanShoot)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && CanShoot && NumberOfUses > 0)
         {
             GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f * ProjectilesSpeed, 0f);
             CanShoot = false;
+            NumberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && CanShoot)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && CanShoot && NumberOfUses > 0)
         {
             GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 1.0f * ProjectilesSpeed);
             CanShoot = false;
+            NumberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && CanShoot)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && CanShoot && NumberOfUses > 0)
         {
             GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -1.0f * ProjectilesSpeed);
             CanShoot = false;
+            NumberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
+        }
+
+        if(NumberOfUses < 0)
+        {
+            NumberOfUses = 0;
         }
 
     }
