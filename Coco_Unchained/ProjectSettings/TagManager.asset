@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SwapProjectile
   - SwapTarget
+  - GM
   layers:
   - Default
   - TransparentFX
