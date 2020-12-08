@@ -20,6 +20,7 @@ public class Patrol2d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lookAt();
         transform.position = Vector2.MoveTowards(transform.position, moveSpots[destinationPoint].position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, moveSpots[destinationPoint].position)< minRemainingDistance)
         {
@@ -36,4 +37,11 @@ public class Patrol2d : MonoBehaviour
         }        
         destinationPoint = (destinationPoint + 1) % moveSpots.Length;
     }
+
+    void lookAt() 
+    {
+        var dir = moveSpots[destinationPoint].position-transform.position;
+        var angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    } 
 }
