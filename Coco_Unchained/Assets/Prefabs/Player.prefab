@@ -53,6 +53,8 @@ MonoBehaviour:
   NumberOfUsesNumber: {fileID: 0}
   ProjectilesSpeed: 20
   NumberOfUses: 5
+  firstDoor: {fileID: 0}
+  endDoor: {fileID: 0}
 --- !u!50 &1709788768
 Rigidbody2D:
   serializedVersion: 4
