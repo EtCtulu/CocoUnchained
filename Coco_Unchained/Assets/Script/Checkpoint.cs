@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-
+    
     public GameMaster gm;
 
     // Start is called before the first frame update

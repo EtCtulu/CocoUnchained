@@ -7,6 +7,8 @@ TagManager:
   - SwapProjectile
   - SwapTarget
   - GM
+  - Checkpoint0
+  - Checkpoint1
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Grille
+  - Player
   - 
   - 
   - 

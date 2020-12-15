@@ -15,11 +15,17 @@ public class ConeDeVue : MonoBehaviour
     }
      void OnTriggerEnter2D(Collider2D collision)
     {
-        rend.material.color = colorTrigger;
+        if (collision.CompareTag("Player"))
+        {
+            rend.material.color = colorTrigger;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        rend.material.color = colorIdle;
+        if (collision.CompareTag("Player"))
+        {
+            rend.material.color = colorIdle;
+        }
     }
 }

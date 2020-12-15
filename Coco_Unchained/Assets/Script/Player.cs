@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private bool CanShoot = true;
 
-    public int NumberOfUses = 2;
+    public int NumberOfUses = 0;
 
     private void Update()
     {
@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
             NumberOfUses = 0;
         }
 
+
     }
 
     private void FixedUpdate()
@@ -89,7 +90,21 @@ public class Player : MonoBehaviour
         CanShoot = true;
     }
 
-    
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Checkpoint0"))
+        {
+            NumberOfUses = 4;
+            Debug.Log("number4");
+        }
+
+        if (other.CompareTag("Checkpoint1"))
+        {
+            NumberOfUses = 9;
+            Debug.Log("number9");
+        }
+    }
+
+
 
 }
