@@ -13,7 +13,6 @@ TagManager:
   - CP3
   - Vision
   - GameEnder
-  - FloorNotPassable
   - firstDoor
   - middleDoor
   - endDoor
