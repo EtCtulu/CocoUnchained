@@ -33,6 +33,11 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
     #region Pause & UnPause functions
 
     private void PauseGame()

@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public GameObject menuManager;
     public GameObject swapProjectilePrefab;
     public Text numberOfUsesText;
-    public Text numberOfUsesNumber;
 
     public float projectilesSpeed = 20f;
 
@@ -25,16 +24,29 @@ public class Player : MonoBehaviour
     public int numberOfUses = 0;
 
     [Header("Scripts de porte")]
-    public DoorScript firstDoor;
-    public DoorScript middleDoor;
-    public DoorScript endDoor;
+    public GameObject firstDoor;
+    public GameObject middleDoor;
+    public GameObject endDoor;
 
+    private DoorScript firstDoorScript;
+    private DoorScript middleDoorScript;
+    private DoorScript endDoorScript;
 
+    private void Start()
+    {
+        firstDoor = GameObject.FindGameObjectWithTag("firstDoor");
+        middleDoor = GameObject.FindGameObjectWithTag("middleDoor");
+        endDoor = GameObject.FindGameObjectWithTag("endDoor");
+        firstDoorScript = firstDoor.GetComponent<DoorScript>();
+        middleDoorScript = middleDoor.GetComponent<DoorScript>();
+        endDoorScript = endDoor.GetComponent<DoorScript>();
+    }
     private void Update()
     {
 
         // Get move x and z input direction
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
+        _direction.Normalize();
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && canShoot && numberOfUses > 0)
         {
@@ -126,16 +138,16 @@ public class Player : MonoBehaviour
         }
 
         //Torche de la première salle qui active la première porte
-        for (int i = 0; i < firstDoor.TorchesToActivate.Length; i++)
+        for (int i = 0; i < firstDoorScript.TorchesToActivate.Length; i++)
         {
-            if (other.gameObject == firstDoor.TorchesToActivate[i])
+            if (other.gameObject == firstDoorScript.TorchesToActivate[i])
             {
-                firstDoor.TorchesActivated[i] = true;
-                Destroy(firstDoor.TorchesToActivate[i]);
+                firstDoorScript.TorchesActivated[i] = true;
+                Destroy(firstDoorScript.TorchesToActivate[i]);
 
-                for (int y = 0; y < firstDoor.TorchesActivated.Length; y++)
+                for (int y = 0; y < firstDoorScript.TorchesActivated.Length; y++)
                 {
-                    if (firstDoor.TorchesActivated[y] == true)
+                    if (firstDoorScript.TorchesActivated[y] == true)
                     {
                         Destroy(firstDoor.gameObject);
                     }
@@ -144,16 +156,16 @@ public class Player : MonoBehaviour
         }
 
         //Torche de la première salle qui active la porte du milieu
-        for (int i = 0; i < middleDoor.TorchesToActivate.Length; i++)
+        for (int i = 0; i < middleDoorScript.TorchesToActivate.Length; i++)
         {
-            if (other.gameObject == middleDoor.TorchesToActivate[i])
+            if (other.gameObject == middleDoorScript.TorchesToActivate[i])
             {
-                middleDoor.TorchesActivated[i] = true;
-                Destroy(middleDoor.TorchesToActivate[i]);
+                middleDoorScript.TorchesActivated[i] = true;
+                Destroy(middleDoorScript.TorchesToActivate[i]);
 
-                for (int y = 0; y < middleDoor.TorchesActivated.Length; y++)
+                for (int y = 0; y < middleDoorScript.TorchesActivated.Length; y++)
                 {
-                    if (middleDoor.TorchesActivated[y] == true)
+                    if (middleDoorScript.TorchesActivated[y] == true)
                     {
                         Destroy(middleDoor.gameObject);
                     }
@@ -162,16 +174,16 @@ public class Player : MonoBehaviour
         }
 
         //3 Torches des autres salles
-        for (int i = 0; i < endDoor.TorchesToActivate.Length; i++)
+        for (int i = 0; i < endDoorScript.TorchesToActivate.Length; i++)
         {
-            if (other.gameObject == endDoor.TorchesToActivate[i])
+            if (other.gameObject == endDoorScript.TorchesToActivate[i])
             {
-                endDoor.TorchesActivated[i] = true;
-                Destroy(endDoor.TorchesToActivate[i]);
+                endDoorScript.TorchesActivated[i] = true;
+                Destroy(endDoorScript.TorchesToActivate[i]);
 
-                for (int y = 0; y < endDoor.TorchesActivated.Length; y++)
+                for (int y = 0; y < endDoorScript.TorchesActivated.Length; y++)
                 {
-                    if (endDoor.TorchesActivated[0] == true && endDoor.TorchesActivated[1] == true && endDoor.TorchesActivated[2] == true)
+                    if (endDoorScript.TorchesActivated[0] == true && endDoorScript.TorchesActivated[1] == true && endDoorScript.TorchesActivated[2] == true)
                     {
                         Destroy(endDoor.gameObject);
                     }

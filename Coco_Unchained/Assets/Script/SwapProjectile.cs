@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class SwapProjectile : MonoBehaviour
 {
-
     private GameObject Player;
     private Vector2 statuePos;
     private Vector2 playerPos;
+
     void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 0.5f);
         Physics2D.IgnoreLayerCollision(0, 9);
         Physics2D.IgnoreLayerCollision(0,8);
-        
         
     }
 
@@ -28,7 +27,6 @@ public class SwapProjectile : MonoBehaviour
             Player.transform.position = statuePos;
             Destroy(gameObject);
         }
-        
         else
         {
             Destroy(gameObject);
