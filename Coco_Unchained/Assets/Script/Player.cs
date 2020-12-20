@@ -102,26 +102,22 @@ public class Player : MonoBehaviour
         Debug.Log("collider");
         if (other.CompareTag("Checkpoint0"))
         {
-            NumberOfUses = 4;
-            Debug.Log("number4");
+            NumberOfUses = 4;            
         }
 
         if (other.CompareTag("Checkpoint1"))
         {
-            NumberOfUses = 9;
-            Debug.Log("number9");
+            NumberOfUses = 9;            
         }
 
         if (other.CompareTag("CP2"))
         {
-            NumberOfUses = 7;
-            Debug.Log("number9");
+            NumberOfUses = 7;            
         }
 
         if (other.CompareTag("CP3"))
         {
-            NumberOfUses = 3;
-            Debug.Log("number9");
+            NumberOfUses = 3;            
         }
 
         //Torche de la première salle qui active la première porte

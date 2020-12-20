@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7964693831414017802}
   - component: {fileID: 7964693831414017801}
   - component: {fileID: 7964693831414017800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemi_Mouvant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f166785dab19d874cb26097e41cb07ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1.5
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -116,9 +116,9 @@ GameObject:
   - component: {fileID: 7964693831842703657}
   - component: {fileID: 7964693831842703656}
   - component: {fileID: 7964693831842703658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vue
-  m_TagString: Untagged
+  m_TagString: Vision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: d9b3fb286169e1e4eaa014a16a4dc014, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.54901963}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
