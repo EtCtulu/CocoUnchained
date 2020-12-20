@@ -15,7 +15,13 @@ public class Player_Pos : MonoBehaviour
     }
 
     // Update is called once per frame
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Vision"))

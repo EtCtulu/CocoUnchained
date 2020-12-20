@@ -99,7 +99,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collider");
         if (other.CompareTag("Checkpoint0"))
         {
             NumberOfUses = 4;            
