@@ -283,7 +283,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1243,12 +1243,12 @@ PrefabInstance:
     - target: {fileID: 2886479780401295409, guid: 76da0296332698247ab23db568679d66,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.32
+      value: 6.12
       objectReference: {fileID: 0}
     - target: {fileID: 2886479780401295409, guid: 76da0296332698247ab23db568679d66,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.31
+      value: -5.75
       objectReference: {fileID: 0}
     - target: {fileID: 2886479780401295409, guid: 76da0296332698247ab23db568679d66,
         type: 3}
@@ -35811,7 +35811,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -47928,7 +47928,7 @@ GameObject:
   - component: {fileID: 1730955218}
   - component: {fileID: 1730955220}
   - component: {fileID: 1730955219}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TilemapFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47987,7 +47987,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
