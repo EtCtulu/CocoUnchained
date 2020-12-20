@@ -12,9 +12,10 @@ public class SwapProjectile : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Destroy(gameObject, 4f);
-        Physics2D.IgnoreLayerCollision(0,8);
         Physics2D.IgnoreLayerCollision(0, 9);
-        Physics2D.IgnoreLayerCollision(0, 10);
+        Physics2D.IgnoreLayerCollision(0,8);
+        
+        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -27,9 +28,11 @@ public class SwapProjectile : MonoBehaviour
             Player.transform.position = statuePos;
             Destroy(gameObject);
         }
+        
         else
         {
             Destroy(gameObject);
+           
         }
     }
 }

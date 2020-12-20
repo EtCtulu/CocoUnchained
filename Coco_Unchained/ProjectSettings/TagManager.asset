@@ -9,6 +9,8 @@ TagManager:
   - GM
   - Checkpoint0
   - Checkpoint1
+  - CP2
+  - CP3
   layers:
   - Default
   - TransparentFX
