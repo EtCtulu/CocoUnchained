@@ -112,6 +112,17 @@ public class Player : MonoBehaviour
             Debug.Log("number9");
         }
 
+        if (other.CompareTag("CP2"))
+        {
+            NumberOfUses = 7;
+            Debug.Log("number9");
+        }
+
+        if (other.CompareTag("CP3"))
+        {
+            NumberOfUses = 3;
+            Debug.Log("number9");
+        }
 
         //Torche de la première salle qui active la première porte
         for (int i = 0; i < firstDoor.TorchesToActivate.Length; i++)

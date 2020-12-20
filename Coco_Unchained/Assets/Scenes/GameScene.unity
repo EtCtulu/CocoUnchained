@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 23607987}
   - component: {fileID: 23607986}
   - component: {fileID: 23607985}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CP3
   m_TagString: CP3
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1303,6 +1303,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster
       objectReference: {fileID: 0}
+    - target: {fileID: 6781583258072665094, guid: 8614f574e157439448de2dc85063ba96,
+        type: 3}
+      propertyPath: lastCheckPointPos.x
+      value: 7.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781583258072665094, guid: 8614f574e157439448de2dc85063ba96,
+        type: 3}
+      propertyPath: lastCheckPointPos.y
+      value: -0.79
+      objectReference: {fileID: 0}
     - target: {fileID: 6781583258072665095, guid: 8614f574e157439448de2dc85063ba96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2002,7 +2012,7 @@ GameObject:
   - component: {fileID: 887073722}
   - component: {fileID: 887073721}
   - component: {fileID: 887073720}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CP9
   m_TagString: Checkpoint1
   m_Icon: {fileID: 0}
@@ -2033,7 +2043,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2195,7 +2205,7 @@ GameObject:
   - component: {fileID: 1010180549}
   - component: {fileID: 1010180548}
   - component: {fileID: 1010180547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CP7
   m_TagString: CP2
   m_Icon: {fileID: 0}
@@ -2226,7 +2236,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2642,7 +2652,7 @@ GameObject:
   - component: {fileID: 1172458463}
   - component: {fileID: 1172458462}
   - component: {fileID: 1172458461}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CP4
   m_TagString: Checkpoint0
   m_Icon: {fileID: 0}
@@ -2673,7 +2683,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2861,8 +2871,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2894,7 +2904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294056790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2886479780223793492}
@@ -67223,7 +67233,7 @@ GameObject:
   - component: {fileID: 1790173607}
   - component: {fileID: 1790173606}
   - component: {fileID: 1790173605}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CP0
   m_TagString: Checkpoint0
   m_Icon: {fileID: 0}
@@ -67254,7 +67264,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
