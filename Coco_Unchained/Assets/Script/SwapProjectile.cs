@@ -14,6 +14,7 @@ public class SwapProjectile : MonoBehaviour
         Destroy(gameObject, 4f);
         Physics2D.IgnoreLayerCollision(0,8);
         Physics2D.IgnoreLayerCollision(0, 9);
+        Physics2D.IgnoreLayerCollision(0, 10);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
