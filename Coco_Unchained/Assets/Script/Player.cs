@@ -13,15 +13,16 @@ public class Player : MonoBehaviour
 
     private Vector3 _direction;
 
-    public GameObject SwapProjectilePrefab;
-    public Text NumberOfUsesText;
-    public Text NumberOfUsesNumber;
+    public GameObject menuManager;
+    public GameObject swapProjectilePrefab;
+    public Text numberOfUsesText;
+    public Text numberOfUsesNumber;
 
-    public float ProjectilesSpeed = 20f;
+    public float projectilesSpeed = 20f;
 
-    private bool CanShoot = true;
+    private bool canShoot = true;
 
-    public int NumberOfUses = 0;
+    public int numberOfUses = 0;
 
     [Header("Scripts de porte")]
     public DoorScript firstDoor;
@@ -35,48 +36,48 @@ public class Player : MonoBehaviour
         // Get move x and z input direction
         _direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && CanShoot && NumberOfUses > 0)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && canShoot && numberOfUses > 0)
         {
-            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f * ProjectilesSpeed, 0f);
-            CanShoot = false;
-            NumberOfUses -= 1;
+            GameObject projectile = Instantiate(swapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f * projectilesSpeed, 0f);
+            canShoot = false;
+            numberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && CanShoot && NumberOfUses > 0)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && canShoot && numberOfUses > 0)
         {
-            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f * ProjectilesSpeed, 0f);
-            CanShoot = false;
-            NumberOfUses -= 1;
+            GameObject projectile = Instantiate(swapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f * projectilesSpeed, 0f);
+            canShoot = false;
+            numberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && CanShoot && NumberOfUses > 0)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && canShoot && numberOfUses > 0)
         {
-            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 1.0f * ProjectilesSpeed);
-            CanShoot = false;
-            NumberOfUses -= 1;
+            GameObject projectile = Instantiate(swapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 1.0f * projectilesSpeed);
+            canShoot = false;
+            numberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && CanShoot && NumberOfUses > 0)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && canShoot && numberOfUses > 0)
         {
-            GameObject projectile = Instantiate(SwapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -1.0f * ProjectilesSpeed);
-            CanShoot = false;
-            NumberOfUses -= 1;
+            GameObject projectile = Instantiate(swapProjectilePrefab, transform.position, Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -1.0f * projectilesSpeed);
+            canShoot = false;
+            numberOfUses -= 1;
             Invoke("CanShootON", 0.5f);
         }
 
-        if(NumberOfUses < 0)
+        if(numberOfUses < 0)
         {
-            NumberOfUses = 0;
+            numberOfUses = 0;
         }
 
-
+        numberOfUsesText.text = numberOfUses.ToString();
     }
 
     private void FixedUpdate()
@@ -94,29 +95,34 @@ public class Player : MonoBehaviour
 
     private void CanShootON()
     {
-        CanShoot = true;
+        canShoot = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Checkpoint0"))
         {
-            NumberOfUses = 4;            
+            numberOfUses = 4;            
         }
 
         if (other.CompareTag("Checkpoint1"))
         {
-            NumberOfUses = 9;            
+            numberOfUses = 9;            
         }
 
         if (other.CompareTag("CP2"))
         {
-            NumberOfUses = 7;            
+            numberOfUses = 7;            
         }
 
         if (other.CompareTag("CP3"))
         {
-            NumberOfUses = 3;            
+            numberOfUses = 3;            
+        }
+
+        if (other.CompareTag("GameEnder"))
+        {
+            menuManager.GetComponent<Menu>().EndGame();
         }
 
         //Torche de la première salle qui active la première porte

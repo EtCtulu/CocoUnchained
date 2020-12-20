@@ -12,6 +12,7 @@ TagManager:
   - CP2
   - CP3
   - Vision
+  - GameEnder
   layers:
   - Default
   - TransparentFX
